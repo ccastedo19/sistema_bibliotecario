@@ -19,10 +19,15 @@ return new class extends Migration
             $table->string('titulo', 100);
             $table->string('autor', 100);
             $table->string('idioma', 100);
+            $table->integer('stock');
             $table->integer('estado_libro');
             $table->string('imagen', 250);
-            $table->integer('id_categoriaF')->index('id_categoriaF');
-            $table->integer('id_usuarioF')->index('id_usuarioF');
+            $table->unsignedBigInteger('id_categoriaF');
+            $table->unsignedBigInteger('id_usuarioF');
+    
+            // Definir claves foráneas
+            $table->foreign('id_categoriaF')->references('id_categoria')->on('categoria')->onDelete('cascade');
+            $table->foreign('id_usuarioF')->references('id_usuario')->on('usuario')->onDelete('cascade');
         });
     }
 

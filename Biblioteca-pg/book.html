@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     <script>window.jQuery || document.write('<script src="js/jquery-1.11.2.min.js"><\/script>')</script>
     <script src="js/modernizr.js"></script>
     <script src="js/bootstrap.min.js"></script>
@@ -32,7 +33,7 @@
             </div>
             <div class="full-reset" style="background-color:#2B3D51; padding: 10px 0; color:#fff;">
                 <figure>
-                    <img src="assets/img/logo.png" alt="Biblioteca" class="img-responsive center-box" style="width:55%;">
+                    <img src="assets/img/logo-santa-cruz.webp" alt="Biblioteca" class="img-responsive center-box" style="width:60%;">
                 </figure>
                 <p class="text-center" style="padding-top: 15px;">Sistema Bibliotecario</p>
             </div>
@@ -41,34 +42,43 @@
                     <li><a href="home.html"><i class="zmdi zmdi-home zmdi-hc-fw"></i>&nbsp;&nbsp; Inicio</a></li>
                     
                     <li>
-                        <div class="dropdown-menu-button"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i>&nbsp;&nbsp; Registro de usuarios <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
+                        <div class="dropdown-menu-button"><i class="zmdi zmdi-account   -add zmdi-hc-fw"></i>&nbsp;&nbsp; Registro de Usuarios <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
                         <ul class="list-unstyled">
-                            <li><a href="admin.html"><i class="zmdi zmdi-face zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo Usuario</a></li>
-                            <li><a href="student.html"><i class="zmdi zmdi-accounts zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo estudiante</a></li>
+                            <li><a href="admin.html"><i class="zmdi zmdi-account-add"></i>&nbsp;&nbsp; Agregar Usuario</a></li>
+                            <li><a href="listadmin.html"><i class="zmdi zmdi-accounts-alt"></i>&nbsp;&nbsp; Lista de Usuarios</a></li>
                         </ul>
                     </li>
+                   
                     <li>
-                        <div class="dropdown-menu-button"><i class="zmdi zmdi-assignment-o zmdi-hc-fw"></i>&nbsp;&nbsp; Libros y catálogo <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
+                        <div style="margin-left: 3px;" class="dropdown-menu-button"><img src="assets/img/student.png" style="width: 16px; margin-left: 4px;position: relative; bottom: 3px;right: 3px;"></i>&nbsp;&nbsp; Registro de Estudiantes <i style="padding-right: 5px;" class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
                         <ul class="list-unstyled">
-                            <li><a href="book.html"><i class="zmdi zmdi-book zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo libro</a></li>
-                            <li><a href="category.html"><i class="zmdi zmdi-collection-plus zmdi-hc-fw"></i>&nbsp;&nbsp; Categoría</a></li>
-                            <li><a href="catalog.html"><i class="zmdi zmdi-bookmark-outline zmdi-hc-fw"></i>&nbsp;&nbsp; Catálogo</a></li>                            
+                            <li><a href="student.html"><img src="assets/img/add-student.png" style="width: 22px; margin-left: 3px;position: relative; bottom: 3px;"></i>&nbsp;&nbsp; Agregar Estudiante</a></li>
+                            <li><a href="liststudent.html"><img src="assets/img/list-student.png" style="width: 20px; margin-left: 3px;position: relative; bottom: 3px;"></i>&nbsp;&nbsp; Lista de Estudiantes</a></li>
                         </ul>
                     </li>
+
                     <li>
-                        <div class="dropdown-menu-button"><i class="zmdi zmdi-alarm zmdi-hc-fw"></i>&nbsp;&nbsp; Préstamos y reservaciones <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
+                        <div class="dropdown-menu-button"><i class="zmdi zmdi-assignment-o zmdi-hc-fw"></i>&nbsp;&nbsp; Registro de Libros <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
                         <ul class="list-unstyled">
-                            <li><a href="loan.html"><i class="zmdi zmdi-calendar zmdi-hc-fw"></i>&nbsp;&nbsp; Todos los préstamos</a></li>
-                            <li>
-                                <a href="loanpending.html"><i class="zmdi zmdi-time-restore zmdi-hc-fw"></i>&nbsp;&nbsp; Devoluciones pendientes <span class="label label-danger pull-right label-mhover">7</span></a>
-                            </li>
-                            <li>
-                                <a href="loanreservation.html"><i class="zmdi zmdi-timer zmdi-hc-fw"></i>&nbsp;&nbsp; Reservaciones <span class="label label-danger pull-right label-mhover">7</span></a>
-                            </li>
+                            <li><a style="margin-left: 2px;" href="book.html"><img src="assets/img/add-bookk.png" style="width: 18px; margin-left: 3px;position: relative; bottom: 3px;right: 4px;"></i>&nbsp;&nbsp; Agregar Libro</a></li>
+                            <li><a style="margin-left: 4px;" href="listcategory.html"><img src="assets/img/categoria.png" style="width: 15px; margin-left: 3px;position: relative; bottom: 3px;right: 4px;"></i>&nbsp;&nbsp; Categorías</a></li>      
+                            <li><a href="catalog.html"><i class="zmdi zmdi-book zmdi-hc-fw"></i>&nbsp;&nbsp; Lista de Libros</a></li>                    
                         </ul>
                     </li>
-                    <li><a href="report.html"><i class="zmdi zmdi-trending-up zmdi-hc-fw"></i>&nbsp;&nbsp; Reportes y estadísticas</a></li>
-                    <li><a href="advancesettings.html"><i class="zmdi zmdi-wrench zmdi-hc-fw"></i>&nbsp;&nbsp; Configuraciones avanzadas</a></li>
+
+                    <li>
+                        <div class="dropdown-menu-button"><i class="zmdi zmdi-calendar   -add zmdi-hc-fw"></i>&nbsp;&nbsp; Reservas y devoluciones <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
+                        <ul class="list-unstyled">
+                            <li><a href="nuevareserva.html"><i class="zmdi zmdi-calendar-check"></i>&nbsp;&nbsp; Agregar Reserva</a></li>
+                            <li><a href="loanreservation.html"><i class="zmdi zmdi-calendar-note"></i>
+                                &nbsp;&nbsp; Lista Reservas y Devoluciones</a></li>
+                        </ul>
+                    </li>
+
+
+                    
+
+                    <li><a href="advancesettings.html"><i class="zmdi zmdi-wrench zmdi-hc-fw"></i>&nbsp;&nbsp; Configuracion del perfil</a></li>
                 </ul>
             </div>
         </div>
@@ -83,11 +93,9 @@
                     <span id="name-usuario" class="all-tittles"></span>
                 </li>
                 <li  class="tooltips-general exit-system-button" data-href="index.html" data-placement="bottom" title="Salir del sistema">
-                    <i class="zmdi zmdi-power"></i>
+                    <i class="zmdi zmdi-power" onclick="mensajeCerrarSesion()"></i>
                 </li>
-                <li  class="tooltips-general search-book-button" data-href="searchbook.html" data-placement="bottom" title="Buscar libro">
-                    <i class="zmdi zmdi-search"></i>
-                </li>
+               
                 <li  class="tooltips-general btn-help" data-placement="bottom" title="Ayuda">
                     <i class="zmdi zmdi-help-outline zmdi-hc-fw"></i>
                 </li>
@@ -101,85 +109,77 @@
               <h1 class="all-tittles">Sistema bibliotecario <small>Añadir libro</small></h1>
             </div>
         </div>
-        <div class="container-fluid"  style="margin: 50px 0;">
-            <div class="row">
-                <div class="col-xs-12 col-sm-4 col-md-3">
-                    <img src="assets/img/flat-book.png" alt="pdf" class="img-responsive center-box" style="max-width: 110px;">
-                </div>
-                <div class="col-xs-12 col-sm-8 col-md-8 text-justify lead">
-                    Bienvenido a la sección para agregar nuevos libros a la biblioteca, deberas de llenar todos los campos para poder registrar el libro
-                </div>
-            </div>
-        </div>
+        
         <div class="container-fluid">
-            <form autocomplete="off">
+            
                 <div class="container-flat-form">
                     <div class="title-flat-form title-flat-blue">Nuevo libro</div>
                     <div class="row">
                        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-                            <legend><strong>Información básica</strong></legend><br>
-                            <div class="group-material">
-                                <span style="padding-left: 5px;color:#e34724">Categoría</span>
-                                <select class="tooltips-general material-control" data-toggle="tooltip" data-placement="top" title="Elige la categoría del libro">
-                                    <option value="" disabled="" selected="">Selecciona una categoría</option>
-                                    <option value="categoria">Categoría</option>
-                                    <option value="categoria">Categoría</option>
-                                    <option value="categoria">Categoría</option>
-                                </select>
-                            </div>
-                            <div class="group-material">
-                                <input type="text" class="tooltips-general material-control" placeholder="Escribe aquí el código correlativo del libro" pattern="[0-9]{1,20}" required="" maxlength="20" data-toggle="tooltip" data-placement="top" title="Escribe el código correlativo del libro, solamente números">
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
-                                <label>Código correlativo</label>
-                            </div>
-                            <div class="group-material">
-                                <input type="text" class="tooltips-general material-control" placeholder="Escribe aquí el título o nombre del libro" required="" maxlength="70" data-toggle="tooltip" data-placement="top" title="Escribe el título o nombre del libro">
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
-                                <label>Título</label>
-                            </div>
-                            <div class="group-material">
-                                <input type="text" class="tooltips-general material-control" placeholder="Escribe aquí el autor del libro" required="" maxlength="70" data-toggle="tooltip" data-placement="top" title="Escribe el nombre del autor del libro">
-                                <span class="highlight"></span>
-                                <span class="bar"></span>
-                                <label>Autor</label>
-                            </div>
-                            <div class="group-material">
-                                <span style="color:#e34724;padding-left: 5px;">Idioma</span>
-                                <select class="tooltips-general material-control" data-toggle="tooltip" data-placement="top" title="Elige la categoría del libro">
-                                    <option value="" disabled="" selected="">Selecciona un idioma</option>
-                                    <option value="espanol">Español</option>
-                                    <option value="ingles">Ingles</option>
-                                    <option value="portugues">Portugués</option>
-                                </select>
-                            </div>
-
-
-
-                            <div class="file-input-wrapper ">
-                                <div style="margin-bottom: 15px;color:#e34724;padding-left: 5px;"><span>Imagen</span></div>
-                                <div>
-                                    <div id="imagePreviewContainer"></div>
-                                    <span class="file-input-button">Selecciona Imagen</span>
-                                    <input type="file" id="imageInput" accept="image/*">
-                                    <span id="fileName">Ningún archivo seleccionado</span>
-                                    <hr style="border: 1px solid #5264ae;">
+                            
+                            <form onsubmit="agregarLibro(event)">
+                                <div class="group-material">
+                                    <span style="padding-left: 5px;color:#e34724;font-size: 17px;">Categoría</span>
+                                    <select required id="categoriaSelect" class="tooltips-general material-control" data-toggle="tooltip" data-placement="top" title="Elige la categoría del libro">
+                                        <option value="" disabled selected>Selecciona una categoría</option>
+                                    </select>
                                 </div>
                                 
-                            </div>
-
+                                <div class="group-material">
+                                    <input id="codigoLibro" type="text" class="tooltips-general material-control" placeholder="Escribe aquí el código correlativo del libro" pattern="[0-9]{1,20}" required maxlength="20" data-toggle="tooltip" data-placement="top" title="Escribe el código correlativo del libro, solamente números">
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span>
+                                    <label>Código correlativo</label>
+                                </div>
+                                <div class="group-material">
+                                    <input id="tituloLibro" type="text" class="tooltips-general material-control" placeholder="Escribe aquí el título o nombre del libro" required maxlength="70" data-toggle="tooltip" data-placement="top" title="Escribe el título o nombre del libro">
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span>
+                                    <label>Título</label>
+                                </div>
+                                <div class="group-material">
+                                    <input id="autorLibro" type="text" class="tooltips-general material-control" placeholder="Escribe aquí el autor del libro" required maxlength="70" data-toggle="tooltip" data-placement="top" title="Escribe el nombre del autor del libro">
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span>
+                                    <label>Autor</label>
+                                </div>
+                                <div class="group-material">
+                                    <input id="stockLibro" type="number" class="tooltips-general material-control" placeholder="Escribe aquí el Stock" pattern="[0-9]{1,20}" required min="1" data-toggle="tooltip" data-placement="top" title="Escribe el stock">
+                                    <span class="highlight"></span>
+                                    <span class="bar"></span>
+                                    <label>Stock</label>
+                                </div>
+                                <div class="group-material">
+                                    <span style="color:#e34724;padding-left: 5px;font-size: 17px;">Idioma</span>
+                                    <select required id="idiomaLibro" class="tooltips-general material-control" data-toggle="tooltip" data-placement="top" title="Elige la categoría del libro">
+                                        <option value="" disabled selected>Selecciona un idioma</option>
+                                        <option value="espanol">Español</option>
+                                        <option value="ingles">Inglés</option>
+                                        <option value="portugues">Portugués</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="file-input-wrapper">
+                                    <div style="margin-bottom: 15px;color:#e34724;padding-left: 5px;font-size: 17px;"><span>Imagen</span></div>
+                                    <div>
+                                        <div id="imagePreviewContainer"></div>
+                                        <span class="file-input-button">Selecciona Imagen</span>
+                                        <input required type="file" id="imageInput" accept="image/*">
+                                        <span id="fileName">Ningún archivo seleccionado</span>
+                                        <hr style="border: 1px solid #5264ae;">
+                                    </div>
+                                </div>
+                                <p class="text-center">
+                                    <button type="button" style="width: 110px;height: 40px; font-size: 15px;margin-right: 15px;" onclick="limpiarInputLibro()" class="btn btn-info" style="margin-right: 20px;"><i class="zmdi zmdi-roller"></i> &nbsp;&nbsp; Limpiar</button>
+                                    <button style="width: 110px;height: 40px; font-size: 15px;margin-left: 15px;" type="submit" class="btn btn-primary"><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp; Guardar</button>
+                                    <a href="catalog.html" style="width: 110px;height: 40px; font-size: 15px;margin-left: 30px;" class="btn btn-danger" style="margin-right: 30px;"> <span style="position: relative; top: 2px;"> <i class="zmdi zmdi-close"></i>&nbsp; Cancelar </span> </a>
+                                </p>
+                            </form>
                             
-
-                    
-                            <p class="text-center">
-                                <button type="reset" class="btn btn-info" style="margin-right: 20px;"><i class="zmdi zmdi-roller"></i> &nbsp;&nbsp; Limpiar</button>
-                                <button type="submit" class="btn btn-primary"><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp; Guardar</button>
-                            </p>
-                       </div>
+                        </div>
                    </div>
                 </div>
-            </form>
+            
         </div>
         <div class="modal fade" tabindex="-1" role="dialog" id="ModalHelp">
           <div class="modal-dialog modal-lg">
@@ -189,7 +189,9 @@
                     <h4 class="modal-title text-center all-tittles">ayuda del sistema</h4>
                 </div>
                 <div class="modal-body">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore dignissimos qui molestias ipsum officiis unde aliquid consequatur, accusamus delectus asperiores sunt. Quibusdam veniam ipsa accusamus error. Animi mollitia corporis iusto.
+                    Cualquier problema o consulta que requiera puede contactarse a los siguientes contactos disponibles:
+                    <br>Telf: +591 76000898
+                    <br>Email: cesar.castedo1@gmail.com
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="zmdi zmdi-thumb-up"></i> &nbsp; De acuerdo</button>
@@ -201,8 +203,11 @@
     </div>
 </body>
 </html>
+
+<script src="js/logout.js"></script>
 <script src="js/datos_user.js"></script>
 <script src="js/token.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 <script src="js/insertar_img.js"></script>
 <script src="js/script.js"></script>
     

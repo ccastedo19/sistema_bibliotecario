@@ -8,10 +8,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="Shortcut Icon" type="image/x-icon" href="assets/icons/book.ico" />
-    <script src="js/sweet-alert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
     <link rel="stylesheet" href="css/sweet-alert.css">
     <link rel="stylesheet" href="css/material-design-iconic-font.min.css">
     <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/ocultar.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
     <link rel="stylesheet" href="css/style.css">
@@ -22,6 +26,9 @@
     <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="js/main.js"></script>
 </head>
+
+
+
 <body>
     <div class="navbar-lateral full-reset">
         <div class="visible-xs font-movile-menu mobile-menu-button"></div>
@@ -32,7 +39,7 @@
             </div>
             <div class="full-reset" style="background-color:#2B3D51; padding: 10px 0; color:#fff;">
                 <figure>
-                    <img src="assets/img/logo.png" alt="Biblioteca" class="img-responsive center-box" style="width:55%;">
+                    <img src="assets/img/logo-santa-cruz.webp" alt="Biblioteca" class="img-responsive center-box" style="width:60%;">
                 </figure>
                 <p class="text-center" style="padding-top: 15px;">Sistema Bibliotecario</p>
             </div>
@@ -41,34 +48,43 @@
                     <li><a href="home.html"><i class="zmdi zmdi-home zmdi-hc-fw"></i>&nbsp;&nbsp; Inicio</a></li>
                     
                     <li>
-                        <div class="dropdown-menu-button"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i>&nbsp;&nbsp; Registro de usuarios <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
+                        <div class="dropdown-menu-button"><i class="zmdi zmdi-account   -add zmdi-hc-fw"></i>&nbsp;&nbsp; Registro de Usuarios <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
                         <ul class="list-unstyled">
-                            <li><a href="admin.html"><i class="zmdi zmdi-face zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo Usuario</a></li>
-                            <li><a href="student.html"><i class="zmdi zmdi-accounts zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo estudiante</a></li>
+                            <li><a href="admin.html"><i class="zmdi zmdi-account-add"></i>&nbsp;&nbsp; Agregar Usuario</a></li>
+                            <li><a href="listadmin.html"><i class="zmdi zmdi-accounts-alt"></i>&nbsp;&nbsp; Lista de Usuarios</a></li>
                         </ul>
                     </li>
+                   
                     <li>
-                        <div class="dropdown-menu-button"><i class="zmdi zmdi-assignment-o zmdi-hc-fw"></i>&nbsp;&nbsp; Libros y catálogo <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
+                        <div style="margin-left: 3px;" class="dropdown-menu-button"><img src="assets/img/student.png" style="width: 16px; margin-left: 4px;position: relative; bottom: 3px;right: 3px;"></i>&nbsp;&nbsp; Registro de Estudiantes <i style="padding-right: 5px;" class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
                         <ul class="list-unstyled">
-                            <li><a href="book.html"><i class="zmdi zmdi-book zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo libro</a></li>
-                            <li><a href="category.html"><i class="zmdi zmdi-collection-plus zmdi-hc-fw"></i>&nbsp;&nbsp; Categoría</a></li>
-                            <li><a href="catalog.html"><i class="zmdi zmdi-bookmark-outline zmdi-hc-fw"></i>&nbsp;&nbsp; Catálogo</a></li>                            
+                            <li><a href="student.html"><img src="assets/img/add-student.png" style="width: 22px; margin-left: 3px;position: relative; bottom: 3px;"></i>&nbsp;&nbsp; Agregar Estudiante</a></li>
+                            <li><a href="liststudent.html"><img src="assets/img/list-student.png" style="width: 20px; margin-left: 3px;position: relative; bottom: 3px;"></i>&nbsp;&nbsp; Lista de Estudiantes</a></li>
                         </ul>
                     </li>
+
                     <li>
-                        <div class="dropdown-menu-button"><i class="zmdi zmdi-alarm zmdi-hc-fw"></i>&nbsp;&nbsp; Préstamos y reservaciones <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
+                        <div class="dropdown-menu-button"><i class="zmdi zmdi-assignment-o zmdi-hc-fw"></i>&nbsp;&nbsp; Registro de Libros <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
                         <ul class="list-unstyled">
-                            <li><a href="loan.html"><i class="zmdi zmdi-calendar zmdi-hc-fw"></i>&nbsp;&nbsp; Todos los préstamos</a></li>
-                            <li>
-                                <a href="loanpending.html"><i class="zmdi zmdi-time-restore zmdi-hc-fw"></i>&nbsp;&nbsp; Devoluciones pendientes <span class="label label-danger pull-right label-mhover">7</span></a>
-                            </li>
-                            <li>
-                                <a href="loanreservation.html"><i class="zmdi zmdi-timer zmdi-hc-fw"></i>&nbsp;&nbsp; Reservaciones <span class="label label-danger pull-right label-mhover">7</span></a>
-                            </li>
+                            <li><a style="margin-left: 2px;" href="book.html"><img src="assets/img/add-bookk.png" style="width: 18px; margin-left: 3px;position: relative; bottom: 3px;right: 4px;"></i>&nbsp;&nbsp; Agregar Libro</a></li>
+                            <li><a style="margin-left: 4px;" href="listcategory.html"><img src="assets/img/categoria.png" style="width: 15px; margin-left: 3px;position: relative; bottom: 3px;right: 4px;"></i>&nbsp;&nbsp; Categorías</a></li>      
+                            <li><a href="catalog.html"><i class="zmdi zmdi-book zmdi-hc-fw"></i>&nbsp;&nbsp; Lista de Libros</a></li>                    
                         </ul>
                     </li>
-                    <li><a href="report.html"><i class="zmdi zmdi-trending-up zmdi-hc-fw"></i>&nbsp;&nbsp; Reportes y estadísticas</a></li>
-                    <li><a href="advancesettings.html"><i class="zmdi zmdi-wrench zmdi-hc-fw"></i>&nbsp;&nbsp; Configuraciones avanzadas</a></li>
+
+                    <li>
+                        <div class="dropdown-menu-button"><i class="zmdi zmdi-calendar   -add zmdi-hc-fw"></i>&nbsp;&nbsp; Reservas y devoluciones <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
+                        <ul class="list-unstyled">
+                            <li><a href="nuevareserva.html"><i class="zmdi zmdi-calendar-check"></i>&nbsp;&nbsp; Agregar Reserva</a></li>
+                            <li><a href="loanreservation.html"><i class="zmdi zmdi-calendar-note"></i>
+                                &nbsp;&nbsp; Lista Reservas y Devoluciones</a></li>
+                        </ul>
+                    </li>
+
+
+                    
+
+                    <li><a href="advancesettings.html"><i class="zmdi zmdi-wrench zmdi-hc-fw"></i>&nbsp;&nbsp; Configuracion del perfil</a></li>
                 </ul>
             </div>
         </div>
@@ -83,11 +99,9 @@
                     <span id="name-usuario" class="all-tittles"></span>
                 </li>
                 <li  class="tooltips-general exit-system-button" data-href="index.html" data-placement="bottom" title="Salir del sistema">
-                    <i class="zmdi zmdi-power"></i>
+                    <i class="zmdi zmdi-power" onclick="mensajeCerrarSesion()"></i>
                 </li>
-                <li  class="tooltips-general search-book-button" data-href="searchbook.html" data-placement="bottom" title="Buscar libro">
-                    <i class="zmdi zmdi-search"></i>
-                </li>
+               
                 <li  class="tooltips-general btn-help" data-placement="bottom" title="Ayuda">
                     <i class="zmdi zmdi-help-outline zmdi-hc-fw"></i>
                 </li>
@@ -101,61 +115,176 @@
               <h1 class="all-tittles">Sistema bibliotecario <small>Catálogo de libros</small></h1>
             </div>
         </div>
-         <div class="container-fluid"  style="margin: 40px 0;">
-            <div class="row">
-                <div class="col-xs-12 col-sm-4 col-md-3">
-                    <img src="assets/img/checklist.png" alt="pdf" class="img-responsive center-box" style="max-width: 110px;">
-                </div>
-                <div class="col-xs-12 col-sm-8 col-md-8 text-justify lead">
-                    Bienvenido al catálogo, selecciona una categoría de la lista para empezar, si deseas buscar un libro por nombre o título has click en el icono &nbsp; <i class="zmdi zmdi-search"></i> &nbsp; que se encuentra en la barra superior
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid" style="margin: 0 0 50px 0;">
-            <h2 class="text-center" style="margin: 0 0 25px 0;">Categorías</h2>
-            <ul class="list-unstyled text-center list-catalog-container">
-                <li class="list-catalog">Categoría</li>
-                <li class="list-catalog">Categoría</li>
-                <li class="list-catalog">Categoría</li>
-            </ul>
-        </div>
-        <div class="container-fluid">
-            <div class="media media-hover">
-                <div class="media-left media-middle">
-                    <a href="#!" class="tooltips-general" data-toggle="tooltip" data-placement="right" title="Más información del libro">
-                      <img class="media-object" src="assets/img/book.png" alt="Libro" width="48" height="48">
-                    </a>
-                </div>
-                <div class="media-body">
-                    <h4 class="media-heading">1 - Título</h4>
-                    <div class="pull-left">
-                        <strong>Autor<br>
-                        <strong>Año<br>
-                    </div>
-                    <p class="text-center pull-right">
-                        <a href="#!" class="btn btn-info btn-xs" style="margin-right: 10px;"><i class="zmdi zmdi-info-outline"></i> &nbsp;&nbsp; Más información</a>
-                    </p>
-                </div>
+
+
+        <div style="margin:0 auto" class="loader"></div>
+        <div style="position: relative; bottom: 30px;margin-top: 5rem;" class="container-fluid caja-loader">
+
+            <!-- <h2 style="position: relative; bottom: 15px;" class="text-center all-tittles">Catálogo de Libros</h2> -->
+
+            <div class="add">
+                <a style="width: 50px; height: 40px;" href="book.html" title="Nuevo libro" class="btn btn-success tooltips-general"><img width="23px" src="assets/img/signoMas.png"></a> 
             </div>
             
-            <div class="media media-hover">
-                <div class="media-left media-middle">
-                    <a href="#!" class="tooltips-general" data-toggle="tooltip" data-placement="right" title="Más información del libro">
-                      <img class="media-object" src="assets/img/book.png" alt="Libro" width="48" height="48">
-                    </a>
+            <div class="buscar-y-nuevo">
+
+                <div>
+                    <label for="entriesPerPage" style="font-size: 15px;">Mostrar</label>
+                    <select id="entriesPerPage" style="height: 35px; font-size: 15px; text-align: center;">
+                        <option value="7" selected>7</option>
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                    <label for="entriesPerPage" style="font-size: 15px;">Entradas</label>
                 </div>
-                <div class="media-body">
-                    <h4 class="media-heading">4 - Título</h4>
-                    <div class="pull-left">
-                        <strong>Autor<br>
-                        <strong>Año<br>
-                    </div>
-                    <p class="text-center pull-right">
-                        <a href="#!" class="btn btn-info btn-xs" style="margin-right: 10px;"><i class="zmdi zmdi-info-outline"></i> &nbsp;&nbsp; Más información</a>
-                    </p>
+
+                <div class="report-table">
+                    <button class="tooltips-general" title="PDF" id="generatePDF"> <img style="width:35px;" src="assets/img/iconPdf.png"> </button>
+                    <button class="tooltips-general" title="Excel" id="generateExcel"> <img style="width:35px;" src="assets/img/iconExcel.png"> </button>
+                </div>
+
+                <div>
+                    <button class="tooltips-general" title="Actualizar" onclick="AutoRefresh()"> <img style="width:35px;" src="assets/img/refresh.png"></button>
+                </div>
+
+                <div class="buscador">  
+                    <label>Buscar:</label>
+                    <input type="search" id="search-libro"  class="buscador-table" required="" pattern="[a-zA-ZáéíóúÁÉÍÓÚ ]{1,50}" maxlength="50" data-toggle="tooltip" data-placement="top" title="Escribe el libro o código">
+                </div>
+
+            </div>
+            
+            
+            <table id="libroTable" class="div-table">
+                <thead>
+                    <tr class="div-table-row div-table-head">
+                        <th class="div-table-cell dt-column-order" data-column="numero" data-order="asc">
+                            <div class="container-indicate-th">
+                                <div>
+                                    <span class="dt-column-title">N°</span>
+                                </div>
+                                <div class="container-indicator">
+                                    <span class="dt-column-order-indicator asc"></span>
+                                    <span class="dt-column-order-indicator desc"></span>
+                                </div>
+                            </div>
+                        </th>
+                        <th class="div-table-cell dt-column-order" data-column="imagen" data-order="asc">
+                            <div class="container-indicate-th">
+                                <div>
+                                    <span class="dt-column-title">Imagen</span>
+                                </div>
+                                <div class="container-indicator">
+                                    <span class="dt-column-order-indicator asc"></span>
+                                    <span class="dt-column-order-indicator desc"></span>
+                                </div>
+                            </div>
+                        </th>
+                        <th class="div-table-cell dt-column-order" data-column="codigo" data-order="asc">
+                            <div class="container-indicate-th">
+                                <div>
+                                    <span class="dt-column-title">Código</span>
+                                </div>
+                                <div class="container-indicator">
+                                    <span class="dt-column-order-indicator asc"></span>
+                                    <span class="dt-column-order-indicator desc"></span>
+                                </div>
+                            </div>
+                        </th>
+                        <th class="div-table-cell dt-column-order" data-column="titulo" data-order="asc">
+                            <div class="container-indicate-th">
+                                <div>
+                                    <span class="dt-column-title">Título</span>
+                                </div>
+                                <div class="container-indicator">
+                                    <span class="dt-column-order-indicator asc"></span>
+                                    <span class="dt-column-order-indicator desc"></span>
+                                </div>
+                            </div>
+                        </th>
+                        <th class="div-table-cell dt-column-order" data-column="autor" data-order="asc">
+                            <div class="container-indicate-th">
+                                <div>
+                                    <span class="dt-column-title">Autor</span>
+                                </div>
+                                <div class="container-indicator">
+                                    <span class="dt-column-order-indicator asc"></span>
+                                    <span class="dt-column-order-indicator desc"></span>
+                                </div>
+                            </div>
+                        </th>
+                        <th class="div-table-cell dt-column-order" data-column="idioma" data-order="asc">
+                            <div class="container-indicate-th">
+                                <div>
+                                    <span class="dt-column-title">Idioma</span>
+                                </div>
+                                <div class="container-indicator">
+                                    <span class="dt-column-order-indicator asc"></span>
+                                    <span class="dt-column-order-indicator desc"></span>
+                                </div>
+                            </div>
+                        </th>
+                        <th class="div-table-cell dt-column-order" data-column="stock" data-order="asc">
+                            <div class="container-indicate-th">
+                                <div>
+                                    <span class="dt-column-title">Stock</span>
+                                </div>
+                                <div class="container-indicator">
+                                    <span class="dt-column-order-indicator asc"></span>
+                                    <span class="dt-column-order-indicator desc"></span>
+                                </div>
+                            </div>
+                        </th>
+                        <th class="div-table-cell dt-column-order" data-column="categoria" data-order="asc">
+                            <div class="container-indicate-th">
+                                <div>
+                                    <span class="dt-column-title">Categoría</span>
+                                </div>
+                                <div class="container-indicator">
+                                    <span class="dt-column-order-indicator asc"></span>
+                                    <span class="dt-column-order-indicator desc"></span>
+                                </div>
+                            </div>
+                        </th>
+                        <th class="div-table-cell dt-column-order" data-column="estado" data-order="asc">
+                            <div class="container-indicate-th">
+                                <div>
+                                    <span class="dt-column-title">Estado</span>
+                                </div>
+                                <div class="container-indicator">
+                                    <span class="dt-column-order-indicator asc"></span>
+                                    <span class="dt-column-order-indicator desc"></span>
+                                </div>
+                            </div>
+                        </th>
+                        <th class="div-table-cell">Cambiar Estado</th>
+                        <th class="div-table-cell">Editar</th>
+                        <th class="div-table-cell">Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody id="libroRows">
+                    <!-- Las filas de los libros se añadirán aquí dinámicamente -->
+                </tbody>
+            </table>
+            
+            <div id="pagination-container" style="display: none; display: flex; justify-content: space-between; align-items: center; padding: 10px 0;">
+                <div id="pagination-info" style="font-size: 15px;">
+                    Mostrando <span id="current-records"></span> de <span id="total-records"></span> libros
+                </div>
+                <div id="pagination-controls">
+                    <button style="width: 80px; height: 40px; font-size: 15px;" id="btn-anterior" class="btn btn-primary" onclick="changePage(-1)">Anterior</button>
+                    <span style="padding-left: 15px; padding-right: 15px; font-size: 15px;" id="pageInfo"></span>
+                    <button style="width: 90px; height: 40px; font-size: 15px;" id="btn-siguiente" class="btn btn-primary" onclick="changePage(1)">Siguiente</button>
                 </div>
             </div>
+                    
+            
         </div>
+         
+        
+        
         <div class="modal fade" tabindex="-1" role="dialog" id="ModalHelp">
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -164,7 +293,9 @@
                     <h4 class="modal-title text-center all-tittles">ayuda del sistema</h4>
                 </div>
                 <div class="modal-body">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore dignissimos qui molestias ipsum officiis unde aliquid consequatur, accusamus delectus asperiores sunt. Quibusdam veniam ipsa accusamus error. Animi mollitia corporis iusto.
+                    Cualquier problema o consulta que requiera puede contactarse a los siguientes contactos disponibles:
+                    <br>Telf: +591 76000898
+                    <br>Email: cesar.castedo1@gmail.com
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="zmdi zmdi-thumb-up"></i> &nbsp; De acuerdo</button>
@@ -174,7 +305,16 @@
         </div>
         
     </div>
+
+
+
+    
 </body>
+
+<script src="js/report/excelLibros.js"></script>
+<script src="js/report/pdfLibros.js"></script>
+<script src="js/logout.js"></script>
+<script src="js/tables/libro.js"></script>
 <script src="js/datos_user.js"></script>
 <script src="js/token.js"></script>
 </html>

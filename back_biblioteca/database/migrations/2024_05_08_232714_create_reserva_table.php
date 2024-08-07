@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('id_reserva', true);
             $table->date('fecha_inicio');
             $table->date('fecha_fin');
+            $table->integer('estado_libro');
             $table->integer('id_libroF')->index('id_libroF');
             $table->integer('id_estudianteF')->index('id_estudianteF');
             $table->integer('id_usuarioF')->index('id_usuarioF');

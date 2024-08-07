@@ -13,24 +13,7 @@ $(document).ready(function(){
         dropMenu.slideToggle('slow');
     });
 
-    $('.exit-system-button').on('click', function(e){
-        e.preventDefault();
-        swal({
-            title: "¿Estás seguro?",
-            text: "Quieres salir del sistema y cerrar la sesión actual",
-            type: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#5cb85c",
-            confirmButtonText: "Si, salir",
-            cancelButtonText: "No, cancelar",
-            animation: "slide-from-top",
-            closeOnConfirm: false 
-        }, function(isConfirm) {
-            if (isConfirm) {
-                logout();
-            }
-        });
-    });
+    
     
     $('.search-book-button').click(function(e){
         e.preventDefault();
@@ -77,22 +60,4 @@ $(document).ready(function(){
 
 
 
-function logout() {
-    fetch('http://localhost:8000/api/logout', {
-        method: 'POST',
-        headers: {
-            'Authorization': `Bearer ${localStorage.getItem('token')}`,
-            'Content-Type': 'application/json'
-        }
-    })
-    .then(response => {
-        localStorage.removeItem('token'); 
-        localStorage.removeItem('nombreUsuario'); 
-        localStorage.removeItem('token_sofystic')
-        console.log("Cierre de sesión OK");
-        window.location.href = 'index.html'; 
-    })
-    .catch(error => {
-        console.error('Error durante el logout:', error);
-    });
-}
+

@@ -17,8 +17,16 @@ class EstudianteController extends Controller
      */
     public function VerEstudiantes()
     {
-        return estudiante::all(); //retornar datos
+        return estudiante::orderBy('id_estudiante', 'desc')->get();
     }
+
+    public function VerEstudiantesActivos()
+    {
+        return estudiante::where('estado_estudiante', 1)
+            ->orderBy('id_estudiante', 'desc')
+            ->get();
+    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -52,7 +60,7 @@ class EstudianteController extends Controller
     public function CantidadEstudiantes()
     {
         $cantidad_estudiantes = Estudiante::count();
-        return response()->json(['total_students' => $cantidad_estudiantes], 200);  
+        return response()->json(['total' => $cantidad_estudiantes], 200);  
     }
 
     /**
@@ -82,16 +90,28 @@ class EstudianteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function eliminarEstudiante(Estudiante $estudiante)
+    public function eliminarEstudiante(Estudiante $id_estudiante)
     {   
-        $estudiante->delete();
+        $tieneReservaActiva = $id_estudiante->reservas()->where('estado_reserva', 1)->exists();
+
+        if ($tieneReservaActiva) {
+            return response()->json([
+                'res' => false,
+                'mensaje' => "No se puede eliminar el estudiante porque tiene libros reservados."
+            ], 400);
+        }
+
+        // Eliminar el estudiante si no tiene reservas activas
+        $id_estudiante->delete();
+
         return response()->json([
             'res' => true,
             'mensaje' => "Estudiante eliminado correctamente"
-        ],200);
+        ], 200);
     }
 
-    public function actualizarEstadoEstudainte(Estudiante $id_estudiante) {
+
+    public function actualizarEstadoEstudiante(Estudiante $id_estudiante) {
     
         $estadoActual = $id_estudiante->estado_estudiante;
         $id_estudiante->estado_estudiante = $estadoActual == 1 ? 0 : 1;

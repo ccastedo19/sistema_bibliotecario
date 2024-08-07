@@ -1,6 +1,83 @@
+input:focus{
+    outline:none !important;
+} 
+
 .caja-loader{
     display: none;
 }
+
+.group-material{
+    display: flex;
+    flex-direction: column;
+}
+
+.container-contenido{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#mensajeSinLibros, #mensajeSinDatosEstudiante{
+    display: none;
+}
+#mensajeSinLibros, #mensajeSinDatosEstudiante{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    color: red;
+    width: 100%;
+    font-size: 15px;
+}
+
+/*flechas en las tablas*/
+.container-indicate-th{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.container-indicator{
+    display: flex;
+    flex-direction: column;
+    
+}
+.dt-column-order {
+    position: relative;
+    cursor: pointer;
+}
+
+.dt-column-order-indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-size: cover;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+.dt-column-order-indicator.asc {
+    background-image: url('../assets/img/flecha_ascendente.png'); /* Icono de flecha ascendente */
+}
+
+.dt-column-order-indicator.desc {
+    background-image: url('../assets/img/flecha_descendente.png'); /* Icono de flecha descendente */
+}
+
+
+.dt-column-order.asc .dt-column-order-indicator.asc {
+    display: inline-block;
+}
+
+.dt-column-order.desc .dt-column-order-indicator.desc {
+    display: inline-block;
+}
+
+
+
+
 
 /*preloader*/
 .loader {
@@ -35,4 +112,276 @@
     49.99% {transform:scale(var(--s,1)) perspective(150px) rotateX(-90deg) ;filter:grayscale(0)}
     50%    {transform:scale(var(--s,1)) perspective(150px) rotateX(-90deg) ;filter:grayscale(0.8)}
     100%   {transform:scale(var(--s,1)) perspective(150px) rotateX(-180deg);filter:grayscale(0.8)}
+}
+
+/*select2*/
+/* Opcional: agregar estilos personalizados para Select2 */
+.select2-container--default .select2-selection--single{
+    margin-top: 15px !important;
+    border: 1px solid #333333 !important;
+    color: #333333;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow{
+    margin-top: 15px !important;
+}
+span.select2.select2-container.select2-container--default.select2-container--below.select2-container--focus{
+    width: 100%;
+}
+
+.container-fluid{
+    
+    margin-top: 20px;
+    padding-left: 35px !important;
+    padding-right: 35px !important;
+}
+
+
+.activo{
+    border: none;
+    background-color: #5cb85c;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px 8px 5px 8px;
+    font-size: 12px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.inactivo{
+    border: none;
+    background-color: #33414e;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px 8px 5px 8px;
+    font-size: 12px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.anulado{
+    border: none;
+    background-color: #dc3545;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px 8px 5px 8px;
+    font-size: 12px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.buscar-y-nuevo{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.buscar-y-nuevo select{
+    cursor: pointer;
+}
+
+.buscador-table{
+    border: 1px solid #33414e;
+    height: 35px;
+    padding-left: 5px;
+}
+.add{
+    margin-bottom: 2rem;
+}
+
+.buscador{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+.buscador label{
+    font-size: 16px;
+}
+
+#imagePreviewContainer{
+    display: flex;
+    flex-direction: column;   
+}
+
+.swal2-actions{
+    gap: 20px;
+}
+
+/*info estudiante ficha*/
+.info-student{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 25px;
+
+}
+.txt-student{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.info-student h3{
+    font-size:16px;
+    margin:0px;
+}
+.info-student span{
+    font-size:16px;
+    color:#46AFEF;
+}
+
+.title-modal{
+    font-size: 22px;
+    text-align: center;
+    margin-bottom:23px;
+    font-family: "Titulos" !important;
+    margin-top: 0px;
+}
+.icon-report{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+th{
+    user-select: none;
+}
+
+.report-content{
+    cursor: pointer;
+}
+
+#permisos{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+#permisos{
+    display: none;
+}
+
+.title-configuracion{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 20px;
+}
+
+.title-configuracion h2{
+    margin-top: 0px;
+    margin-bottom:0px;
+    font-size: 26px;
+    text-align: center;
+    font-family: "Titulos" !important;
+}
+
+
+/*graficos circular*/
+
+.graficos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    padding-left: 85px;
+    padding-right: 85px;
+    margin-top: 4rem;
+    margin-bottom: 5rem;
+}
+
+.circular{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #E1E1E1;
+    padding: 25px;
+}
+
+.legend-container {
+
+    background: #fffefe;
+    height: 200px;
+    padding: 20px;
+}
+
+.legend {
+    list-style: none;
+    padding: 0;
+}
+
+.legend li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: default;
+}
+
+.legend span {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.legend-title {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #e34724;
+}
+.chart-container{
+    margin-right: 20px;
+}
+
+#reservaDevolucionChart{
+    width: 250px !important;
+    height: 250px !important;
+}
+
+/*reservas anuladas*/
+.reservas-anuladas{
+    display: flex;
+    flex-direction: row;
+    padding: 25px;
+    gap: 15px;
+    border: 1px solid #E1E1E1;
+
+}
+.cantidad-anulado{
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    padding-top: 25px;
+}
+.cantidad-anulado span{
+    text-align: center;
+    font-size: 60px;
+    font-weight: 500;
+}
+
+
+/* Tablets y phablets */
+@media (min-width: 576px) and (max-width: 767px){
+
+}
+
+/* Teléfonos */
+@media (max-width: 575px){
+    .container-contenido{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .circular{
+        flex-direction: column-reverse;
+        justify-content: center;
+        justify-content: center;
+        align-items: center;
+    }
+    .graficos{
+        margin-top: 0;
+        padding-right: 15px;
+        padding-left: 15px;
+        justify-content: center;
+    }
+    .chart-container{
+        margin-top: 15px;
+    }
 }

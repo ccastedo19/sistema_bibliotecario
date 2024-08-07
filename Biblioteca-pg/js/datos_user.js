@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
         elementos.forEach(function(elemento) {
             elemento.style.display = 'block';
         });
-    }, 1000);
+    }, 1500);
 });
 
 

@@ -11,8 +11,8 @@ html, body {
     margin: 0;
     padding: 0;
     width: 100%;
-    font-size: 16px;
-    font-family: "Parrafos" !important;
+    font-size: 14px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
     background-color: #fff;
 }
 .media-hover{padding: 7px; border-radius: 4px;}
@@ -80,8 +80,9 @@ span.label-mhover{
 }
 .div-table-head,
 .div-table-head:hover{
-    background-color: #DFF0D8;
-    font-size: 17px;
+    background-color: #33414e;
+    color: #fff !important;
+    font-size: 15px;
     font-weight: bolder;
 }
 .div-table-head .div-table-cell{ border-top: 1px solid #E1E1E1; }
@@ -318,6 +319,7 @@ input.material-control:valid ~ label{
 input.material-control:valid ~ label:before{
     content: "✓   "
 }
+
 input.material-control:focus:invalid ~ label,
 input.material-control:invalid ~ label{
   top:-20px;
@@ -569,6 +571,7 @@ input.material-control:focus ~ .highlight {
     height: 100%;
     opacity: 0;
     cursor: pointer;
+    margin-top: 5px;
 }
 #fileName {
     display: inline-block;
@@ -590,7 +593,25 @@ td{
     border: 1px solid #999 !important;
 }
 
+/*checbox formulario editar usuario*/
+.actualizarPass{
+    display: flex;
+    flex-direction: row;    
+    align-items: center;
+    padding-bottom: 40px;
+    gap: 5px;
+}
+.actualizarPass label{
+    color: #2D3945;
+    font-weight: 500;
+}
 
-/******paginacion*************/
+#checkPass{
+    position: relative;
+    bottom: 4px;
+}
 
+#passwordC1, #passwordC2, #txtValidar{
+    display: none;
+}
 

@@ -9,9 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="Shortcut Icon" type="image/x-icon" href="assets/icons/book.ico" />
     <script src="js/sweet-alert.min.js"></script>
-    <link rel="stylesheet" href="css/sweet-alert.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
     <link rel="stylesheet" href="css/material-design-iconic-font.min.css">
     <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/ocultar.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
     <link rel="stylesheet" href="css/style.css">
@@ -32,7 +36,7 @@
             </div>
             <div class="full-reset" style="background-color:#2B3D51; padding: 10px 0; color:#fff;">
                 <figure>
-                    <img src="assets/img/logo.png" alt="Biblioteca" class="img-responsive center-box" style="width:55%;">
+                    <img src="assets/img/logo-santa-cruz.webp" alt="Biblioteca" class="img-responsive center-box" style="width:60%;">
                 </figure>
                 <p class="text-center" style="padding-top: 15px;">Sistema Bibliotecario</p>
             </div>
@@ -41,34 +45,43 @@
                     <li><a href="home.html"><i class="zmdi zmdi-home zmdi-hc-fw"></i>&nbsp;&nbsp; Inicio</a></li>
                     
                     <li>
-                        <div class="dropdown-menu-button"><i class="zmdi zmdi-account-add zmdi-hc-fw"></i>&nbsp;&nbsp; Registro de usuarios <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
+                        <div class="dropdown-menu-button"><i class="zmdi zmdi-account   -add zmdi-hc-fw"></i>&nbsp;&nbsp; Registro de Usuarios <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
                         <ul class="list-unstyled">
-                            <li><a href="admin.html"><i class="zmdi zmdi-face zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo Usuario</a></li>
-                            <li><a href="student.html"><i class="zmdi zmdi-accounts zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo estudiante</a></li>
+                            <li><a href="admin.html"><i class="zmdi zmdi-account-add"></i>&nbsp;&nbsp; Agregar Usuario</a></li>
+                            <li><a href="listadmin.html"><i class="zmdi zmdi-accounts-alt"></i>&nbsp;&nbsp; Lista de Usuarios</a></li>
                         </ul>
                     </li>
+                   
                     <li>
-                        <div class="dropdown-menu-button"><i class="zmdi zmdi-assignment-o zmdi-hc-fw"></i>&nbsp;&nbsp; Libros y catálogo <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
+                        <div style="margin-left: 3px;" class="dropdown-menu-button"><img src="assets/img/student.png" style="width: 16px; margin-left: 4px;position: relative; bottom: 3px;right: 3px;"></i>&nbsp;&nbsp; Registro de Estudiantes <i style="padding-right: 5px;" class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
                         <ul class="list-unstyled">
-                            <li><a href="book.html"><i class="zmdi zmdi-book zmdi-hc-fw"></i>&nbsp;&nbsp; Nuevo libro</a></li>
-                            <li><a href="category.html"><i class="zmdi zmdi-collection-plus zmdi-hc-fw"></i>&nbsp;&nbsp; Categoría</a></li>
-                            <li><a href="catalog.html"><i class="zmdi zmdi-bookmark-outline zmdi-hc-fw"></i>&nbsp;&nbsp; Catálogo</a></li>                            
+                            <li><a href="student.html"><img src="assets/img/add-student.png" style="width: 22px; margin-left: 3px;position: relative; bottom: 3px;"></i>&nbsp;&nbsp; Agregar Estudiante</a></li>
+                            <li><a href="liststudent.html"><img src="assets/img/list-student.png" style="width: 20px; margin-left: 3px;position: relative; bottom: 3px;"></i>&nbsp;&nbsp; Lista de Estudiantes</a></li>
                         </ul>
                     </li>
+
                     <li>
-                        <div class="dropdown-menu-button"><i class="zmdi zmdi-alarm zmdi-hc-fw"></i>&nbsp;&nbsp; Préstamos y reservaciones <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
+                        <div class="dropdown-menu-button"><i class="zmdi zmdi-assignment-o zmdi-hc-fw"></i>&nbsp;&nbsp; Registro de Libros <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
                         <ul class="list-unstyled">
-                            <li><a href="loan.html"><i class="zmdi zmdi-calendar zmdi-hc-fw"></i>&nbsp;&nbsp; Todos los préstamos</a></li>
-                            <li>
-                                <a href="loanpending.html"><i class="zmdi zmdi-time-restore zmdi-hc-fw"></i>&nbsp;&nbsp; Devoluciones pendientes <span class="label label-danger pull-right label-mhover">7</span></a>
-                            </li>
-                            <li>
-                                <a href="loanreservation.html"><i class="zmdi zmdi-timer zmdi-hc-fw"></i>&nbsp;&nbsp; Reservaciones <span class="label label-danger pull-right label-mhover">7</span></a>
-                            </li>
+                            <li><a style="margin-left: 2px;" href="book.html"><img src="assets/img/add-bookk.png" style="width: 18px; margin-left: 3px;position: relative; bottom: 3px;right: 4px;"></i>&nbsp;&nbsp; Agregar Libro</a></li>
+                            <li><a style="margin-left: 4px;" href="listcategory.html"><img src="assets/img/categoria.png" style="width: 15px; margin-left: 3px;position: relative; bottom: 3px;right: 4px;"></i>&nbsp;&nbsp; Categorías</a></li>      
+                            <li><a href="catalog.html"><i class="zmdi zmdi-book zmdi-hc-fw"></i>&nbsp;&nbsp; Lista de Libros</a></li>                    
                         </ul>
                     </li>
-                    <li><a href="report.html"><i class="zmdi zmdi-trending-up zmdi-hc-fw"></i>&nbsp;&nbsp; Reportes y estadísticas</a></li>
-                    <li><a href="advancesettings.html"><i class="zmdi zmdi-wrench zmdi-hc-fw"></i>&nbsp;&nbsp; Configuraciones avanzadas</a></li>
+
+                    <li>
+                        <div class="dropdown-menu-button"><i class="zmdi zmdi-calendar   -add zmdi-hc-fw"></i>&nbsp;&nbsp; Reservas y devoluciones <i class="zmdi zmdi-chevron-down pull-right zmdi-hc-fw"></i></div>
+                        <ul class="list-unstyled">
+                            <li><a href="nuevareserva.html"><i class="zmdi zmdi-calendar-check"></i>&nbsp;&nbsp; Agregar Reserva</a></li>
+                            <li><a href="loanreservation.html"><i class="zmdi zmdi-calendar-note"></i>
+                                &nbsp;&nbsp; Lista Reservas y Devoluciones</a></li>
+                        </ul>
+                    </li>
+
+
+                    
+
+                    <li><a href="advancesettings.html"><i class="zmdi zmdi-wrench zmdi-hc-fw"></i>&nbsp;&nbsp; Configuracion del perfil</a></li>
                 </ul>
             </div>
         </div>
@@ -83,11 +96,9 @@
                     <span id="name-usuario" class="all-tittles"></span>
                 </li>
                 <li  class="tooltips-general exit-system-button" data-href="index.html" data-placement="bottom" title="Salir del sistema">
-                    <i class="zmdi zmdi-power"></i>
+                    <i class="zmdi zmdi-power" onclick="mensajeCerrarSesion()"></i>
                 </li>
-                <li  class="tooltips-general search-book-button" data-href="searchbook.html" data-placement="bottom" title="Buscar libro">
-                    <i class="zmdi zmdi-search"></i>
-                </li>
+                
                 <li  class="tooltips-general btn-help" data-placement="bottom" title="Ayuda">
                     <i class="zmdi zmdi-help-outline zmdi-hc-fw"></i>
                 </li>
@@ -98,133 +109,144 @@
         </nav>
         <div class="container">
             <div class="page-header">
-              <h1 class="all-tittles">Sistema bibliotecario <small>préstamos y reservaciones</small></h1>
+              <h1 class="all-tittles">Sistema bibliotecario <small>préstamos y devoluciones</small></h1>
             </div>
         </div>
-        <div class="conteiner-fluid">
-            <ul class="nav nav-tabs nav-justified"  style="font-size: 17px;">
-                <li><a href="loan.html">Todos los préstamos</a></li>
-                <li><a href="loanpending.html">Devoluciones pendientes</a></li>
-                <li class="active"><a href="loanreservation.html">Reservaciones</a></li>
-            </ul>
+       
+        
+        
+        <div style="margin:0 auto" class="loader"></div>
+        <div class="container-fluid caja-loader">
+            <!-- <h2 style="position: relative; bottom: 15px;" class="text-center all-tittles">Lista de Reservaciones</h2> -->
+            <div class="add">
+                <a style="width: 50px; height: 40px;" href="nuevareserva.html" class="btn btn-success tooltips-general"><img width="23px" src="assets/img/signoMas.png" title="Nueva reserva"></a> 
+            </div>
+           
+            <div class="buscar-y-nuevo">
+                <div>
+                    <label for="entriesPerPage" style="font-size: 15px;">Mostrar</label>
+                    <select id="entriesPerPage" style="height: 35px; font-size: 15px; text-align: center;">
+                        <option value="7" selected>7</option>
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                    <label for="entriesPerPage" style="font-size: 15px;">Entradas</label>
+                </div>
+
+                
+                <div class="report-table">
+                    <button  class="tooltips-general" title="PDF" id="generatePDF"> <img style="width:35px;" src="assets/img/iconPdf.png"> </button>
+                    <button  class="tooltips-general" title="Excel" id="generateExcel"> <img style="width:35px;" src="assets/img/iconExcel.png"> </button>
+                </div>
+
+                <div>
+                    <button  class="tooltips-general" title="Actualizar" onclick="AutoRefresh()"> <img style="width:35px;" src="assets/img/refresh.png"></button>
+                </div>
+
+                <div class="buscador">  
+                    <label>Buscar:</label>
+                    <input type="search" id="search-reserva"  class="buscador-table" required="" pattern="[a-zA-ZáéíóúÁÉÍÓÚ ]{1,50}" maxlength="50" data-toggle="tooltip" data-placement="top" title="Estudiante o fechas">
+                </div>
+                
+                
+            </div>
+           
+            <table id="reservaTable" class="div-table">
+                <thead>
+                    <tr class="div-table-row div-table-head">
+                        <th class="div-table-cell dt-column-order" data-column="numero" data-order="asc">
+                            <div class="container-indicate-th">
+                                <div>
+                                    <span class="dt-column-title">N°</span>
+                                </div>
+                                <div class="container-indicator">
+                                    <span class="dt-column-order-indicator asc"></span>
+                                    <span class="dt-column-order-indicator desc"></span>
+                                </div>
+                            </div>
+                        </th>
+                        <th class="div-table-cell dt-column-order" data-column="fecha_inicio" data-order="asc">
+                            <div class="container-indicate-th">
+                                <div>
+                                    <span class="dt-column-title">Fecha Inicio</span>
+                                </div>
+                                <div class="container-indicator">
+                                    <span class="dt-column-order-indicator asc"></span>
+                                    <span class="dt-column-order-indicator desc"></span>
+                                </div>
+                            </div>
+                        </th>
+                        <th class="div-table-cell dt-column-order" data-column="fecha_fin" data-order="asc">
+                            <div class="container-indicate-th">
+                                <div>
+                                    <span class="dt-column-title">Fecha Fin</span>
+                                </div>
+                                <div class="container-indicator">
+                                    <span class="dt-column-order-indicator asc"></span>
+                                    <span class="dt-column-order-indicator desc"></span>
+                                </div>
+                            </div>
+                        </th>
+                        <th class="div-table-cell dt-column-order" data-column="estudiante" data-order="asc">
+                            <div class="container-indicate-th">
+                                <div>
+                                    <span class="dt-column-title">Estudiante</span>
+                                </div>
+                                <div class="container-indicator">
+                                    <span class="dt-column-order-indicator asc"></span>
+                                    <span class="dt-column-order-indicator desc"></span>
+                                </div>
+                            </div>
+                        </th>
+                        <th class="div-table-cell dt-column-order" data-column="libro" data-order="asc">
+                            <div class="container-indicate-th">
+                                <div>
+                                    <span class="dt-column-title">Libro</span>
+                                </div>
+                                <div class="container-indicator">
+                                    <span class="dt-column-order-indicator asc"></span>
+                                    <span class="dt-column-order-indicator desc"></span>
+                                </div>
+                            </div>
+                        </th>
+                        <th class="div-table-cell dt-column-order" data-column="cantidad" data-order="asc">
+                            <div class="container-indicate-th">
+                                <div>
+                                    <span class="dt-column-title">Cantidad</span>
+                                </div>
+                                <div class="container-indicator">
+                                    <span class="dt-column-order-indicator asc"></span>
+                                    <span class="dt-column-order-indicator desc"></span>
+                                </div>
+                            </div>
+                        </th>
+                        <th class="div-table-cell">Estado</th>
+                        <th class="div-table-cell">Cambiar E</th>
+                    </tr>
+                </thead>
+                <tbody id="reservaRows">
+                    <!-- Las filas de los usuarios se añadirán aquí dinámicamente -->
+                </tbody>
+            </table>
+            
+            
+            <div id="pagination-container" style="display: none; display: flex; justify-content: space-between; align-items: center; padding: 10px 0;">
+                <div id="pagination-info" style="font-size: 15px;">
+                    Mostrando <span id="current-records"></span> de <span id="total-records"></span> reservas
+                </div>
+                <div id="pagination-controls">
+                    <button style="width: 80px; height: 40px; font-size: 15px;" id="btn-anterior" class="btn btn-primary" onclick="changePage(-1)">Anterior</button>
+                    <span style="padding-left: 15px; padding-right: 15px; font-size: 15px;padding-top: 8px;" id="pageInfo"></span>
+                    <button style="width: 90px; height: 40px; font-size: 15px;" id="btn-siguiente" class="btn btn-primary" onclick="changePage(1)">Siguiente</button>
+                </div>
+            </div>
+                     
+            
         </div>
-         <div class="container-fluid" style="margin: 50px 0;">
-            <div class="row">
-                <div class="col-xs-12 col-sm-4 col-md-3">
-                    <img src="assets/img/calendar.png" alt="clock" class="img-responsive center-box" style="max-width: 110px;">
-                </div>
-                <div class="col-xs-12 col-sm-8 col-md-8 text-justify lead">
-                    Bienvenido a esta sección, aquí se muestran las reservaciones de libros hechas por los docentes y estudiantes, las cuales están pendientes para ser aprobadas por ti
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid">
-            <h2 class="text-center all-tittles">Listado de reservaciones</h2>
-            <div class="table-responsive">
-                <div class="div-table" style="margin:0 !important;">
-                    <div class="div-table-row div-table-row-list" style="background-color:#DFF0D8; font-weight:bold;">
-                        <div class="div-table-cell" style="width: 6%;">#</div>
-                        <div class="div-table-cell" style="width: 22%;">Nombre de libro</div>
-                        <div class="div-table-cell" style="width: 22%;">Nombre de usuario</div>
-                        <div class="div-table-cell" style="width: 10%;">Tipo</div>
-                        <div class="div-table-cell" style="width: 10%;">F. Solicitud</div>
-                        <div class="div-table-cell" style="width: 10%;">F. Entrega</div>
-                        <div class="div-table-cell" style="width: 8%;">Aprobar</div>
-                        <div class="div-table-cell" style="width: 8%;">Eliminar</div>
-                    </div>
-                </div>
-            </div>
-            <div class="table-responsive">
-                <div class="div-table" style="margin:0 !important;">
-                    <div class="div-table-row div-table-row-list">
-                        <div class="div-table-cell" style="width: 6%;">#</div>
-                        <div class="div-table-cell" style="width: 22%;">Nombre de libro</div>
-                        <div class="div-table-cell" style="width: 22%;">Nombre de usuario</div>
-                        <div class="div-table-cell" style="width: 10%;">Tipo</div>
-                        <div class="div-table-cell" style="width: 10%;">F. Solicitud</div>
-                        <div class="div-table-cell" style="width: 10%;">F. Entrega</div>
-                        <div class="div-table-cell" style="width: 8%;">
-                            <button class="btn btn-success"><i class="zmdi zmdi-timer"></i></button>
-                        </div>
-                        <div class="div-table-cell" style="width: 8%;">
-                            <button class="btn btn-danger"><i class="zmdi zmdi-delete"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="table-responsive">
-                <div class="div-table" style="margin:0 !important;">
-                    <div class="div-table-row div-table-row-list">
-                        <div class="div-table-cell" style="width: 6%;">#</div>
-                        <div class="div-table-cell" style="width: 22%;">Nombre de libro</div>
-                        <div class="div-table-cell" style="width: 22%;">Nombre de usuario</div>
-                        <div class="div-table-cell" style="width: 10%;">Tipo</div>
-                        <div class="div-table-cell" style="width: 10%;">F. Solicitud</div>
-                        <div class="div-table-cell" style="width: 10%;">F. Entrega</div>
-                        <div class="div-table-cell" style="width: 8%;">
-                            <button class="btn btn-success"><i class="zmdi zmdi-timer"></i></button>
-                        </div>
-                        <div class="div-table-cell" style="width: 8%;">
-                            <button class="btn btn-danger"><i class="zmdi zmdi-delete"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="table-responsive">
-                <div class="div-table" style="margin:0 !important;">
-                    <div class="div-table-row div-table-row-list">
-                        <div class="div-table-cell" style="width: 6%;">#</div>
-                        <div class="div-table-cell" style="width: 22%;">Nombre de libro</div>
-                        <div class="div-table-cell" style="width: 22%;">Nombre de usuario</div>
-                        <div class="div-table-cell" style="width: 10%;">Tipo</div>
-                        <div class="div-table-cell" style="width: 10%;">F. Solicitud</div>
-                        <div class="div-table-cell" style="width: 10%;">F. Entrega</div>
-                        <div class="div-table-cell" style="width: 8%;">
-                            <button class="btn btn-success"><i class="zmdi zmdi-timer"></i></button>
-                        </div>
-                        <div class="div-table-cell" style="width: 8%;">
-                            <button class="btn btn-danger"><i class="zmdi zmdi-delete"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="table-responsive">
-                <div class="div-table" style="margin:0 !important;">
-                    <div class="div-table-row div-table-row-list">
-                        <div class="div-table-cell" style="width: 6%;">#</div>
-                        <div class="div-table-cell" style="width: 22%;">Nombre de libro</div>
-                        <div class="div-table-cell" style="width: 22%;">Nombre de usuario</div>
-                        <div class="div-table-cell" style="width: 10%;">Tipo</div>
-                        <div class="div-table-cell" style="width: 10%;">F. Solicitud</div>
-                        <div class="div-table-cell" style="width: 10%;">F. Entrega</div>
-                        <div class="div-table-cell" style="width: 8%;">
-                            <button class="btn btn-success"><i class="zmdi zmdi-timer"></i></button>
-                        </div>
-                        <div class="div-table-cell" style="width: 8%;">
-                            <button class="btn btn-danger"><i class="zmdi zmdi-delete"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="table-responsive">
-                <div class="div-table" style="margin:0 !important;">
-                    <div class="div-table-row div-table-row-list">
-                        <div class="div-table-cell" style="width: 6%;">#</div>
-                        <div class="div-table-cell" style="width: 22%;">Nombre de libro</div>
-                        <div class="div-table-cell" style="width: 22%;">Nombre de usuario</div>
-                        <div class="div-table-cell" style="width: 10%;">Tipo</div>
-                        <div class="div-table-cell" style="width: 10%;">F. Solicitud</div>
-                        <div class="div-table-cell" style="width: 10%;">F. Entrega</div>
-                        <div class="div-table-cell" style="width: 8%;">
-                            <button class="btn btn-success"><i class="zmdi zmdi-timer"></i></button>
-                        </div>
-                        <div class="div-table-cell" style="width: 8%;">
-                            <button class="btn btn-danger"><i class="zmdi zmdi-delete"></i></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+
         <div class="modal fade" tabindex="-1" role="dialog" id="ModalHelp">
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -233,7 +255,9 @@
                     <h4 class="modal-title text-center all-tittles">ayuda del sistema</h4>
                 </div>
                 <div class="modal-body">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore dignissimos qui molestias ipsum officiis unde aliquid consequatur, accusamus delectus asperiores sunt. Quibusdam veniam ipsa accusamus error. Animi mollitia corporis iusto.
+                    Cualquier problema o consulta que requiera puede contactarse a los siguientes contactos disponibles:
+                    <br>Telf: +591 76000898
+                    <br>Email: cesar.castedo1@gmail.com
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="zmdi zmdi-thumb-up"></i> &nbsp; De acuerdo</button>
@@ -244,6 +268,11 @@
        
     </div>
 </body>
+
+<script src="js/logout.js"></script>
+<script src="js/report/excelReserva.js"></script>
+<script src="js/report/pdfReserva.js"></script>
+<script src="js/tables/reserva.js"></script>
 <script src="js/datos_user.js"></script>
 <script src="js/token.js"></script>
 </html>

@@ -15,6 +15,7 @@ class AuthController extends Controller
         // Validación de los datos
         $request->validate([
             'nombre_usuario' => 'required',
+            'apellido_usuario' => 'required',
             'email' => 'required|email|unique:usuario,email',
             'password' => 'required',
             'estado_usuario' => 'required',
@@ -24,6 +25,7 @@ class AuthController extends Controller
         // Alta de usuario
         $user = new User();
         $user->nombre_usuario = $request->nombre_usuario;
+        $user->apellido_usuario = $request->apellido_usuario;
         $user->email = $request->email;
         $user->password = Hash::make($request->password); 
         $user->estado_usuario = $request->estado_usuario;
@@ -76,6 +78,27 @@ class AuthController extends Controller
         return response()->json($users, 200);
     }
     
+    public function allUsersAsc() {
+        $users = User::orderBy('id_usuario', 'asc')->get();
+        return response()->json($users, 200);
+    }
+
+    public function verUnUsuario($id_usuario) {
+        $usuario = User::find($id_usuario);
+    
+        if ($usuario) {
+            return response()->json([
+                'res' => true,
+                'usuario' => $usuario
+            ], 200);
+        } else {
+            return response()->json([
+                'res' => false,
+                'mensaje' => 'Usuario no encontrado'
+            ], 404);
+        }
+    }
+    
 
     public function deleteUser($id_usuario)
     {
@@ -113,17 +136,48 @@ class AuthController extends Controller
     
         $validatedData = $request->validate([
             'nombre_usuario' => 'required|string|max:255',
+            'apellido_usuario' => 'required|string|max:255',
             'email' => 'required|email|unique:usuario,email,' . $id_usuario . ',id_usuario',
         ]);
     
         // Actualizar el usuario con los datos validados
         $user->nombre_usuario = $validatedData['nombre_usuario'];
+        $user->apellido_usuario = $validatedData['apellido_usuario'];
         $user->email = $validatedData['email'];
         $user->save();
     
         return response()->json(['message' => 'Usuario actualizado correctamente', 'user' => $user], 200);
     }
     
+    public function updatePass(Request $request, $id_usuario)
+    {
+        // Validar la solicitud
+        $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required'
+        ]);
+
+        // Obtener el usuario
+        $user = User::find((int) $id_usuario);
+
+        if (!$user) {
+            return response()->json(['message' => 'Usuario no encontrado'], 404);
+        }
+
+        // Verificar la contraseña antigua
+        if (!Hash::check($request->old_password, $user->password)) {
+            return response()->json(['message' => 'Contraseña antigua incorrecta'], 400);
+        }
+
+        // Actualizar la contraseña
+        $user->password = Hash::make($request->new_password);
+        $user->save();
+
+        return response()->json(['message' => 'Contraseña actualizada correctamente'], 200);
+    }
+
+
+
     
 
     public function counterUser() {

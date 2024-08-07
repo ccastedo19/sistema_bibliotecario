@@ -21,7 +21,12 @@ class Estudiante extends Model
 
     ];
 
-    //si algun campo no queresmo que se envie
+    public function reservas()
+    {
+        return $this->hasMany(Reserva::class, 'id_estudianteF');
+    }
+
+    //si algun campo no queremos que se envie
     // protected $hidden = [
     //     
     //     'estado_estudiante'
